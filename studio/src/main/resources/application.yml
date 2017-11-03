@@ -1,0 +1,33 @@
+server:
+  port: 80
+my:
+  num: 20
+  title: 考试管理系统
+  app-id:  wx4d6344579a0c9fb7 #wx94e2a54a5ad4c1fa #wx4d6344579a0c9fb7 #wx3385c20ad73a24f4
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: studio
+  aop:
+    proxy-target-class: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/exam
+    username: root
+    password: 123456
+    # 指定初始化数据源，是否用data.sql来初始化，默认: true
+    initialize: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+    cache-names: exam

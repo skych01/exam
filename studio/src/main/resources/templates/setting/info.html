@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <th:block th:include="fragments::header"></th:block>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <title>试题后台管理系统</title>
+    <script th:inline="javascript">
+        var id = [[${user.userId}]];
+    </script>
+</head>
+<body>
+<th:block th:include="fragments::banner"></th:block>
+<br/><br/>
+<br/>
+<div id="content">
+
+    <div class="container">
+        <div class="col-md-2">
+            <th:block th:include="setting/setting-fragments::settings-nav"></th:block>
+           <!-- <th:block th:include="settings/settings-nav::settings-nav"></th:block>-->
+        </div>
+        <div class="col-md-10" role="main">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">个人信息</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal">
+                            <br/>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"><span style="color:red;">*</span>邮箱</label>
+                                <div class="col-lg-7">
+                                    <input id="email" name="email" type="text" class="form-control" placeholder="请输入您的邮箱" th:value="${user.email}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"><span style="color:red;">*</span>昵称</label>
+                                <div class="col-lg-7">
+                                    <input id="nickname" name="nickname" type="text" class="form-control" placeholder="请输入您的昵称" th:value="${user.nickname}" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label" for="mobile">电话</label>
+                                <div class="col-lg-7">
+                                    <input id="mobile" name="mobile" type="text" class="form-control" placeholder="请输入您的联系电话" th:value="${user.mobile}"/>
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <a id="btnSave"  class="btn btn-primary">确认修改</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 数据处理时 给予操作反馈-->
+<div id="loading" style="position: absolute;display: none">
+    <img th:src="@{/assets/ico/loading-2.gif}" />
+</div>
+<div id="msg1" class="col-md-9 col-lg-offset-3 alert"></div>
+<th:block th:include="fragments::footer"></th:block>
+<th:block th:include="fragments::script"></th:block>
+
+<script th:src="@{/js/setting/info.js}"></script>
+</body>
+</html>

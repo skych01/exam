@@ -1,0 +1,39 @@
+server:
+  port: 80
+my:
+  app-id:  wx232cf969ce083e6c #wx0d6bb73ef7149843 #wx94e2a54a5ad4c1fa 七云 wx29a8eff4c4327b0e
+  app-secret: 48a9ed6ddf3a3e4086e7074bcd6af249
+  num: 20
+
+jwt:
+  header: Authorization
+  secret: A85336419D594CDB82E3DEB3B05213A5-9B43CD63D56349B38CCB1C0F5DE49D7C
+  #JsonWebToken的过期时间（秒）
+  expiration: 600
+  tokenHead: "Bearer "
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+spring:
+  application:
+    name: exam-studio
+  aop:
+    proxy-target-class: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/exam
+    username: root
+    password: 123456
+    # 指定初始化数据源，是否用data.sql来初始化，默认: true
+    initialize: false
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+  cache:
+    type: redis
+    cache-names: exam

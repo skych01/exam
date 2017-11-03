@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/discovery/discovery.iml" filepath="$PROJECT_DIR$/discovery/discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exam.iml" filepath="$PROJECT_DIR$/exam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/studio/exam-system.iml" filepath="$PROJECT_DIR$/studio/exam-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mini/mini.iml" filepath="$PROJECT_DIR$/mini/mini.iml" />
+    </modules>
+  </component>
+</project>

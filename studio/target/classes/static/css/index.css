@@ -1,0 +1,31 @@
+#content {
+    margin-top: 20px;
+}
+
+.common {
+    color: #B2B2B2;
+    text-align: right;
+}
+
+.out {
+    color: red;
+    text-align: right;
+}
+#bp-element {
+    float: right;
+    margin-top:0;
+}
+
+.lengthCommon {
+    color: #B2B2B2;
+    text-align: right;
+}
+
+.lengthOut {
+    color: red;
+    text-align: right;
+}
+
+.error{
+    color: red;
+}

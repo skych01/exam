@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <th:block th:include="fragments::header"></th:block>
+    <link th:href="@{/css/index.css}" rel="stylesheet"/>
+    <title>试题后台管理系统</title>
+</head>
+<body>
+<th:block th:include="fragments::banner"></th:block>
+<br/><br/>
+<br/>
+<div id="content">
+
+    <div class="container">
+        <div class="col-md-2">
+            <th:block th:include="setting/setting-fragments::settings-nav"></th:block>
+            <!-- <th:block th:include="settings/settings-nav::settings-nav"></th:block>-->
+        </div>
+        <div class="col-md-10" role="main">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">密码修改</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal">
+                            <br/>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label">旧密码</label>
+                                <div class="col-lg-7">
+                                    <input id="old" name="old" type="text" class="form-control" placeholder="请输入您的邮箱"  />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"><span style="color:red;">*</span>新密码</label>
+                                <div class="col-lg-7">
+                                    <input id="now" name="now" type="text" class="form-control" placeholder="请输入您的昵称" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 control-label"><span style="color:red;">*</span>确认新密码</label>
+                                <div class="col-lg-7">
+                                    <input id="now_affirm" name="now_affirm" type="text" class="form-control" placeholder="请输入您的联系电话" />
+                                </div>
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <div class="col-lg-offset-3 col-lg-9">
+                                    <a id="btnSave"  class="btn btn-primary">确认修改</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 数据处理时 给予操作反馈-->
+<div id="loading" style="position: absolute;display: none">
+    <img th:src="@{/assets/ico/loading-2.gif}" />
+</div>
+<div id="msg1" class="col-md-9 col-lg-offset-3 alert"></div>
+<th:block th:include="fragments::footer"></th:block>
+<th:block th:include="fragments::script"></th:block>
+
+<script th:src="@{/js/setting/pwd.js}"></script>
+</body>
+</html>

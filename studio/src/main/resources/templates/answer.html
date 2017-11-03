@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <th:block th:include="fragments::header"></th:block>
+    <link th:href="@{/css/answer.css}" rel="stylesheet"/>
+    <title>试题后台管理系统</title>
+    <script th:inline="javascript">
+        var id = [[${question.questionId}]];
+    </script>
+</head>
+
+<body>
+<div id="content">
+    <div class="container">
+        <div class="panel panel-default">
+
+
+            <ol class="breadcrumb">
+                <li><a href="/index">试题管理</a></li>
+                <li class="active">答案管理</li>
+            </ol>
+
+            <div class="panel-body">
+                <div style="width: 80%;margin-left: 10%;margin-right: 10%">
+                    <h3 class="col-md-2">题目：</h3>
+                    <div id="question" th:text="${question.questionName}" class="col-md-8"></div>
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="col-lg-1">#</th>
+                        <th class="col-lg-4">答案</th>
+                        <th class="col-lg-2">是否正确</th>
+                        <th class="col-lg-2">修改时间</th>
+                        <th class="col-lg-5">其他操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="showList">
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <a id="showModelAdd" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus"></span> 添加
+                </a>
+
+                <ul id='bp-element'></ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 数据处理时 给予操作反馈-->
+<div id="loading" style="position: absolute;">
+    <img th:src="@{/assets/ico/loading-2.gif}"/>
+</div>
+<!-- 添加试题 Modal -->
+<div class="modal fade" id="addAnswer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalLabel">添加试题</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" class="form-horizontal ">
+                    <br/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" for="name">答案选项</label>
+                        <div class="col-sm-7">
+                            <textarea class="form-control" id="name" name="name" rows="3"
+                                      placeholder="请输入题目选项（100字以内)">
+                            </textarea>
+                            <div class="common">
+                                <span id="fontSize">0</span>/100
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">正确答案</label>
+                        <div class="col-sm-7">
+                            <select id="status" class="form-control">
+                                <option value="true">是</option>
+                                <option value="false">否</option>
+                            </select>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" id="close" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" id="btnSave">保存</button>
+        </div>
+    </div>
+</div>
+</div>
+<th:block th:include="fragments::footer"></th:block>
+<th:block th:include="fragments::script"></th:block>
+<script th:src="@{/js/answer.js}" type="application/javascript"></script>
+</body>
+</html>

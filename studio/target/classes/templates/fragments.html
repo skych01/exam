@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+      lang="zh-CN">
+<head th:fragment="header">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="微服360官网：http://www.weifu360.com"/>
+    <meta name="author" content="重庆七云科技开发团队"/>
+    <meta name="keywords" content="重庆,微信开发,微信接口,微服360,weifu360.com,软件定制,公众号开发"/>
+    <meta name="application-name" content="微服360"/>
+    <meta property="qc:admins" content="45062707776751653606375"/>
+    <link rel="shortcut icon" href="/studio/assets/ico/favicon.ico?v=0"/>
+
+    <link th:href="@{/assets/bs3/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+    <link th:href="@{/assets/HubSpot-messenger/css/messenger.css}" rel="stylesheet"/>
+    <link th:href="@{/assets/HubSpot-messenger/css/messenger-theme-flat.css}" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <script th:src="@{/assets/js/json2.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:fragment="nav">
+    <div class="list-group">
+        <a th:href="@{/index}" class="list-group-item">试题管理 </a>
+        <a th:href="@{/setting/info}" class="list-group-item">账号设置</a>
+        <a th:href="@{/userInfo}" class="list-group-item">用户信息</a>
+    </div>
+</div>
+
+
+<div th:fragment="banner">
+    <div id="banner" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/index}" style="font-size: 30px;color: #fff;
+                text-shadow: 1px 1px 1px #ccc;font-family: '幼圆';color: #777;">试题后台管理</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a th:href="@{/index}"><span class="glyphicon glyphicon-home"></span>首页</a>
+                    </li>
+                    <li><a th:href="@{/setting/info}">账号设置</a></li>
+                    <li><a th:href="@{/userInfo}">用户信息</a></li>
+                </ul>
+                <ul sec:authorize="!isAuthenticated()" class="nav navbar-nav navbar-right">
+                    <li><a th:href="@{/login}"><span class="glyphicon glyphicon-user"></span>&nbsp;登录</a>
+                    </li>
+                </ul>
+                <ul sec:authorize="isAuthenticated()" class="nav navbar-nav navbar-right">
+                    <li><a>欢迎您，
+                        <th:block sec:authentication="principal.nickname"></th:block>
+                    </a></li>
+                    <li><a th:href="@{/logout}">退出</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+<div th:fragment="footer">
+    <div id="footer">
+        <div class="container">
+            <br/>
+            <p class="pull-right text-muted credit">
+                <a href="http://www.miibeian.gov.cn/" target="_blank" class="text-muted">渝ICP备13006226号-2</a>
+                &nbsp;&nbsp;&nbsp;&nbsp;&copy; 重庆七云科技有限公司&nbsp;&nbsp;版权所有&nbsp;&nbsp;2013-2014&nbsp;&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/contact}" class="text-muted">联系我们</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="http://www.aliyun.com/" target="_blank"><img
+                        src="http://gtms01.alicdn.com/tps/i1/T1W6.aFbFbXXcZj_6s-96-18.png" alt="运行在阿里云"/></a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div th:fragment="script">
+    <script th:src="@{/assets/jq/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/assets/jq/jquery-migrate-1.2.1.min.js}"></script>
+    <script th:src="@{/assets/jq/jquery.validate.min.js}"></script>
+    <script th:src="@{/assets/bs3/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/HubSpot-messenger/js/messenger.js}"></script>
+    <script th:src="@{/assets/HubSpot-messenger/js/messenger-theme-flat.js}"></script>
+    <script th:src="@{/assets/jq/jquery.cookie.js}"></script>
+    <script th:src="@{/assets/pageUtil/boostrap-paginator.js}"></script>
+    <script th:src="@{/assets/jq/jquery.ui.widget.js}"></script>
+    <script th:src="@{/js/commonApi.js}"></script>
+</div>
+
+</body>
+</html>
